@@ -1,6 +1,5 @@
 class Pedidos{
-    constructor(num_pedido, cliente, titulo, quantidade, valor, pagamento){
-        this.num_pedido = num_pedido
+    constructor(cliente, titulo, quantidade, valor, pagamento){
         this.cliente = cliente
         this.titulo = titulo
         this.quantidade = quantidade 
