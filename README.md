@@ -308,7 +308,7 @@ Saída
 
 - **Laís Muller** -  [GitHub](https://github.com/laismullerrr) - [LinkedIn](https://www.linkedin.com/in/laismulleraliski/)
 
-- **Thiago de Souza** -  [GitHub](https://github.com/Thzzao) - [LinkedIn](https://www.linkedin.com/in/thiagojdss/) 
+- **Thiago Souza** -  [GitHub](https://github.com/Thzzao) - [LinkedIn](https://www.linkedin.com/in/thiagojdss/) 
 
 - **Leticia Oliveira** -  [GitHub](https://github.com/Letiti4) - [LinkedIn](https://www.linkedin.com/in/leticia-oliveira-1955301b8/) 
 
