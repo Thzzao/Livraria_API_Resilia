@@ -3,9 +3,11 @@
 
 Bem-vindos ao Espaço das Letras, o seu novo destino literário online. Nós somos uma pequena livraria/sebo apaixonada por livros e pela cidade de Curitiba, e estamos aqui para compartilhar histórias e conhecimento de forma acessível e conveniente. 
 
+* [Repositório FrontEnd do Projeto](https://github.com/Letiti4/React-Module5)
+
 ## Descrição 🧾
 
-Nesse projeto foi criado uma API Rest para uma livraria, desenvolvido em Node.js com framework Express.
+Nesse projeto foi criado uma API Rest para uma livraria, desenvolvido em Node.js com framework Express. A integração com o MongoDB, utilizando a biblioteca Mongoose, permite o armazenamento e recuperação de dados de forma otimizada.
 
 ## Requisitos 🗝️
 
@@ -15,6 +17,8 @@ Antes de começar, certifique-se de que as seguintes tecnologias estejam devidam
 * [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 
 * [Node.js](https://nodejs.org/en)
+
+* [MongoDB](https://www.mongodb.com/pt-br)
 
 ## Banco de Dados 📊
 
@@ -42,11 +46,15 @@ Essas são as entidades do nosso banco de dados:
 ```
 
 ```bash
-   sqlite3: "^5.1.6"
+   dotenv: "^16.3.1"
 ```
 
 ```bash
    url: "^0.11.2"
+```
+
+```bash
+   mongoose: "^7.5.3"
 ```
 
 
@@ -77,6 +85,17 @@ No terminal do VS Code:
 
 ```bash
   npm install
+```
+
+* **Configure o .env para conectar com o seu MongoDB no Atlas**
+
+Segue um exemplo de configuração: [Link](https://github.com/motdotla/dotenv)
+
+```bash
+  USER_DB=local
+  DATABSE=local
+  PASSWORD=local
+  CLUSTER=local    
 ```
 
 * **Inicie o servidor:**
@@ -298,7 +317,7 @@ Saída
 ## Referências 📌
 
  - [Express](https://expressjs.com/pt-br/)
- - [Sqlite3](https://www.sqlite.org/docs.html)
+ - [MongoDb](https://www.mongodb.com/docs/)
  - [Node.js](https://nodejs.org/en)
 - [Thunder Client](https://www.thunderclient.com/)
 
@@ -311,7 +330,6 @@ Saída
 - **Thiago Souza** -  [GitHub](https://github.com/Thzzao) - [LinkedIn](https://www.linkedin.com/in/thiagojdss/) 
 
 - **Leticia Oliveira** -  [GitHub](https://github.com/Letiti4) - [LinkedIn](https://www.linkedin.com/in/leticia-oliveira-1955301b8/) 
-
-- **Lucio Martins** -  [GitHube](https://github.com/LucioMartinsDw) - [LinkedIn](https://www.linkedin.com/in/luciomartinswebdev/) 
+ 
 
 
