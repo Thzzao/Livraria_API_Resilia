@@ -4,6 +4,7 @@
 Bem-vindos ao Espaço das Letras, o seu novo destino literário online. Nós somos uma pequena livraria/sebo apaixonada por livros e pela cidade de Curitiba, e estamos aqui para compartilhar histórias e conhecimento de forma acessível e conveniente. 
 
 * [Repositório FrontEnd do Projeto](https://github.com/Letiti4/React-Module5)
+* [Deploy da API no Render](https://backend-api-p7ni.onrender.com)
 
 ## Descrição 🧾
 
