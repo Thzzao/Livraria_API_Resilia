@@ -1,72 +1,54 @@
-import ClientesDAO from "../DAO/ClientesDAO.js";
+import ClientesRepository from "../Repository/ClientesRepository.js"
 
-class ValidacaoServicesCliente {
-  /**
-   * Método que valida a existencia do usuário na base de dados
-   * @param {string} id
-   * @returns {boolean}
-   */
-  static validarExistenciaCliente(id) {
-    const cliente = ClientesDAO.buscarClientePorId(id);
-    if (cliente) {
-      return true;
-    } else {
-      return false;
-    }
+class ClientesServices {
+
+  
+static validaNome(nome){
+      const regexNome = /^[a-zA-ZÀ-ú\s']+$/;
+      if (regexNome.test(nome)){
+          return true
+      } else {
+          throw new Error("Nome inválido, apenas letras")
+      }
   }
 
-  /**
-   * Método de validação de nome
-   * @param {string} nome
-   * @returns {boolean}
-   */
-  static validaNome(nome) {
-    return typeof nome == "string" && nome.length > 2;
-  }
-
-  /**
-   * Método para validação de email
-   * @param {string} email
-   * @returns {boolean}
-   */
-  static validaEmail(email) {
-    return typeof email == "string" && email.length > 2;
-  }
-
-  /**
-   * Método para validação de telefone
-   * @param {string} telefone
-   * @returns {boolean}
-   */
-  static validaTelefone(telefone) {
-    // Verifica se o telefone é uma string e tem um comprimento mínimo de 10 caracteres (assumindo que inclui o DDD)
-    return typeof telefone === "string" && telefone.length >= 10;
-  }
-  /**
-   * Método para validação do endereço
-   * @param {string} endereco
-   * @returns {boolean}
-   */
-  static validaEndereco(endereco) {
-    return endereco.length >= 5;
-  }
-
-  /**
-   * Método para validação de todos os campos fornecidos pelo cliente na entidade usuário
-   * @param {string} nome
-   * @param {string} email
-   * @param {string} telefone
-   * @param {string} endereco
-   * @returns
-   */
-  static validaCamposCliente(nome, email, telefone, endereco) {
-    const isValid =
-      this.validaNome(nome) &&
-      this.validaEmail(email) &&
-      this.validaTelefone(telefone) &&
-      this.validaEndereco(endereco);
-    return isValid;
+static validaEndereco(endereco){
+  if (endereco.length >= 3){
+      return true
+  } else {
+      throw new Error("Endereço inválido, deve ter no mínimo 3 caracteres")
   }
 }
 
-export default ValidacaoServicesCliente;
+static validaTelefone(telefone){
+  const numeroLimpo = telefone.replace(/[^\d]/g, '');
+  const telefoneInt = parseInt(numeroLimpo)
+  const regexTelefone = /^[0-9]{10,11}$/
+
+  if (regexTelefone.test(telefoneInt)){
+      return true
+  } else {
+      throw new Error("Telefone inválido")
+  }
+}
+
+static validaEmail(email) {
+  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (regexEmail.test(email)) {
+      return true;
+  } else {
+      throw new Error("E-mail inválido");
+  }
+}
+
+static validaCamposCliente( nome, endereco, telefone, email){
+  const isValid = this.validaNome(nome) && this.validaEndereco(endereco) && this.validaTelefone(telefone) && this.validaEmail(email)
+  if (isValid) {
+      return true;
+  } else {
+      throw new Error("Dados inválido para o cliente");
+  }
+}
+}
+
+export default ClientesServices;

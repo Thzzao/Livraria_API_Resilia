@@ -1,51 +1,29 @@
-import PedidosDAO from "../DAO/PedidosDAO.js";
-import LivrosDAO from "../DAO/LivrosDAO.js";
 
-class ValidacaoServicesPedidos {
-  /**
-   * Método que valida a existencia do usuário na base de dados
-   * @param {string} id
-   * @returns {boolean}
-   */
-  static validarExistenciaPedido(id) {
-    const pedido = PedidosDAO.buscarPedidoPorId(id);
-    if (pedido) {
-      return true;
-    } else {
-      return false;
+class PedidosServices {
+    static validaQuantidade(quantidade) {
+        if (typeof quantidade === "number" && quantidade > 0) {
+            return true;
+        } else {
+            throw new Error("Entrada inválida.");
+        }
     }
-  }
 
-  /**
-   * Método de validação de nome
-   * @param {string} titulo
-   * @returns {boolean}
-   */
-  static validaTitulo(titulo) {
-    return typeof titulo == "string" && titulo.length > 2;
-  }
+    static validaPagamento(pagamento) {
+        const opcoesValidas = ["Boleto", "PIX", "Crédito", "Débito"];
+        if (opcoesValidas.includes(pagamento)) {
+            return true
+        }
+        throw new Error("O pagamento deve ser Boleto, PIX, Crédito ou Débito.")
+    }
 
-  /**
-   * Método de validação de pagamento
-   * @param {string} pagamento
-   * @returns {boolean}
-   */
-  static validaPagamento(pagamento) {
-    const opcoesValidas = ["Boleto", "PIX", "Credito", "Débito"];
-    return opcoesValidas.includes(pagamento);
-  }
-
-  /**
-   * Método para validação de todos os campos fornecidos pelo cliente na entidade usuário
-   * @param {string} titulo
-   * @param {string} pagamento
-   * @returns
-   */
-  static validaCamposPedido(titulo, pagamento) {
-    const isValid =
-      this.validaTitulo(titulo) && this.validaPagamento(pagamento);
-    return isValid;
-  }
+    static validaCamposPedido(quantidade, pagamento) {
+        try {
+            PedidosServices.validaQuantidade(quantidade)
+            PedidosServices.validaPagamento(pagamento);
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
-export default ValidacaoServicesPedidos;
+export default PedidosServices;

@@ -26,11 +26,7 @@ Antes de começar, certifique-se de que as seguintes tecnologias estejam devidam
 Essas são as entidades do nosso banco de dados:
 
 * Clientes
-* Pedidos
 * Livros 
-* Gêneros
-* Autores
-* Editoras 
 
 ## Dependências ⛓️ 
 
@@ -112,40 +108,43 @@ Segue um exemplo de configuração: [Link](https://github.com/motdotla/dotenv)
 ***POST - Rota:***
 
 ```bash
- http://localhost:3000/pedidos
+ http://localhost:3000/livros
 ```
-A rota post cria um pedido.
+A rota post insere um livro.
 
 Entrada
 
 Copie o código json abaixo e insira no body da requisição http:
 
 ```
-{
-    "CLIENTE": 1,
-    "TITULO": "O poder da leitura",
-    "QUANTIDADE": "1",
-    "VALOR": "42.90",
-    "PAGAMENTO": "PIX"
-}
+  {      "titulo": "A garota do mar",
+    "preco": "R$42,90",
+    "autor": "Molly Knox Ostertag",
+    "generos": "Romance",
+    "editora": "Galera",
+    "idioma": "Português",
+    "estado": "Novo",
+    "descricao": "É uma encantadora graphic novel que conta a história de Morgan, uma garota que descobre um mundo mágico sob o mar. Enquanto explora esse reino subaquático, Morgan se depara com uma comunidade de sereias e se envolve em aventuras emocionantes. Ostertag habilmente aborda temas de amizade, aceitação e autodescoberta, criando uma narrativa visualmente envolvente e ricamente ilustrada. A protagonista, com seus dilemas e triunfos, cativa os leitores, enquanto a autora tece uma trama que combina elementos mágicos com mensagens poderosas sobre pertencimento e coragem. A Garota do Mar é uma obra envolvente que ressoa tanto com jovens leitores quanto com os que apreciam uma narrativa encantadora e visualmente estimulante.",
+    "capa": "https://m.media-amazon.com/images/I/818KGgapfiL._SY522_.jpg"
+  }
 
 
 ``` 
 Saída
 
 ```
-"Pedido criado com sucesso!"
+"Sucesso no registro!"
 
 ```
 
-<!-- localhost:3000/generos/ -->
+<!-- localhost:3000/livros -->
 ***GET - Rota:*** 
 
 ```bash
- http://localhost:3000/generos
+ http://localhost:3000/livros
 ```
 
-A rota get lista os gêneros.
+A rota get lista os livros.
 
 Entrada
 
@@ -155,116 +154,92 @@ Apenas digite a rota com o comando GET na URL
 Saída
 
 ```
-[
   {
-    "ID": 1,
-    "LIVROS": 2,
-    "NOME": "ROMANCE"
+    "_id": "653c494f1c288ad2181a0e78",
+    "titulo": "Harry Potter e a Pedra Filosofal",
+    "preco": "R$44,90",
+    "autor": "J.K. Rowling",
+    "generos": "Fantasia",
+    "editora": "Rocco",
+    "idioma": "Português",
+    "estado": "Novo",
+    "descricao": "Harry Potter e a Pedra Filosofal é o primeiro livro da aclamada série de J.K. Rowling. A história segue um jovem bruxo, Harry Potter, enquanto ele descobre seu passado mágico e embarca em uma jornada épica em Hogwarts, a escola de magia. O livro é uma emocionante aventura repleta de amizade, magia e desafios, e se tornou um clássico da literatura infantojuvenil.",
+    "capa": "https://m.media-amazon.com/images/I/61jgm6ooXzL._AC_UF1000,1000_QL80_.jpg",
+    "__v": 0
   },
   {
-    "ID": 2,
-    "LIVROS": 3,
-    "NOME": "COMEDIA"
+    "_id": "653c498c1c288ad2181a0e7b",
+    "titulo": "Cem Anos de Solidão",
+    "preco": "R$49,90",
+    "autor": "Gabriel García Márquez",
+    "generos": "Realismo Mágico",
+    "editora": "Editorial Sudamericana",
+    "idioma": "Espanhol",
+    "estado": "Novo",
+    "descricao": "Cem Anos de Solidão é uma obra-prima do realismo mágico escrita por Gabriel García Márquez. O romance narra a história da família Buendía em Macondo ao longo de várias gerações. Com uma prosa envolvente e elementos mágicos, o livro explora temas de solidão, amor e destino, deixando uma marca indelével na literatura latino-americana.",
+    "capa": "https://m.media-amazon.com/images/I/51cfxI-51mL.jpg",
+    "__v": 0
   },
   {
-    "ID": 3,
-    "LIVROS": 1,
-    "NOME": "ACADEMICOS"
-  },
-  {
-    "ID": 4,
-    "LIVROS": 4,
-    "NOME": "TERROR"
-  },
-  {
-    "ID": 5,
-    "LIVROS": 5,
-    "NOME": "DRAMA"
-  }...
-]
+    "_id": "653c49c51c288ad2181a0e7d",
+    "titulo": "1984",
+    "preco": "R$24,90",
+    "autor": "George Orwell",
+    "generos": "Distopia",
+    "editora": "Companhia das Letras",
+    "idioma": "Inglês",
+    "estado": "Usado",
+    "descricao": "1984, escrito por George Orwell, é um clássico da literatura de distopia. A história se passa em um mundo totalitário controlado pelo Partido, onde a liberdade individual é suprimida e a manipulação da verdade é constante. O livro segue Winston Smith, um homem que desafia o sistema opressor em busca da verdade e da liberdade.",
+    "capa": "https://m.media-amazon.com/images/I/61HtBosDhwL._AC_UF1000,1000_QL80_.jpg",
+    "__v": 0
+  }...
+}
 ```
 
 
 ***PATCH - Rota:***
 
 ```bash
- http://localhost:3000/livros/2
+ http://localhost:3000/livros/653c49c51c288ad2181a0e7d
 ```
 
 A rota patch modifica algum livro.
 
-É importante destacar que no banco de dados, o livro com o ID 2 é exibido da seguinte forma:
+É importante destacar que no banco de dados, o livro com o ID 653c49c51c288ad2181a0e7d é exibido da seguinte forma:
 
 ```
   {
-    "ID": 2,
-    "TITULO": "A deusa do desamor",
-    "PRECO": 26.9,
-    "AUTOR": 2,
-    "GENERO": "ROMANCE",
-    "EDITORA": 2,
-    "IDIOMA": "Portugues"
-  }
+    "_id": "653c49c51c288ad2181a0e7d",
+    "titulo": "1984",
+    "preco": "R$24,90",
+    "autor": "George Orwell",
+    "generos": "Distopia",
+    "editora": "Companhia das Letras",
+    "idioma": "Inglês",
+    "estado": "Usado",
+    "descricao": "1984, escrito por George Orwell, é um clássico da literatura de distopia. A história se passa em um mundo totalitário controlado pelo Partido, onde a liberdade individual é suprimida e a manipulação da verdade é constante. O livro segue Winston Smith, um homem que desafia o sistema opressor em busca da verdade e da liberdade.",
+    "capa": "https://m.media-amazon.com/images/I/61HtBosDhwL._AC_UF1000,1000_QL80_.jpg",
+    "__v": 0
+  }
 
 ```
 Entrada
 
-Copie o código json abaixo e insira no body da requisição http:
+Copie o código json abaixo e insira no body da requisição http para atualizar o preço:
 
 ```
-  {
-    "TITULO": "OFERTA: A deusa do desamor",
-    "PRECO": 20.0,
-    "AUTOR": 2,
-    "GENERO": "ROMANCE",
-    "EDITORA": 2,
-    "IDIOMA": "Portugues"
-  }
+{  
+  "preco": "R$26,90"
+  }
 ```
 
 Saída
 ```
-"Livro alterado com sucesso!"
+"message": "Livro atualizado com sucesso"
 ```
 
 
-***PUT - Rota:***
 
-```bash
-  http://localhost:3000/clientes/3
-```
-
-A rota put modifica um cliente.
-
-É importante destacar que no banco de dados, o cliente com o ID 3 é exibido da seguinte forma::
-```
-  {
-    "ID": 3,
-    "NOME": "Joelma Kalipiçon",
-    "EMAIL": "jojokali@yahoo.com",
-    "TELEFONE": "41 99356-1478",
-    "ENDERECO": "Rua Jose Arruda, 398 - Bairro: Solidão"
-  }
-```
-
-Entrada
-
-Copie o código json abaixo e insira no body da requisição http:
-
-```
-  {
-    "NOME": "JoelmaKalipiçon123",
-    "EMAIL": "jojokali@yahoo.com",
-    "TELEFONE": "41 99356-1478",
-    "ENDERECO": "Rua Jose Arruda, 398 - Bairro: Solidão"
-  }
-```
-
-Saída
-
-```
-`Cliente atualizado com sucesso`
-```
 
 
 ***DELETE - Rota:***
@@ -275,44 +250,23 @@ Saída
 
 A rota delete remove um autor.
 
-É importante destacar que no banco de dados, os autores são exibidos da seguinte forma::
-```
-[
-  {
-    "ID": 1,
-    "NOME": "Carlos Duhigg",
-    "PAIS": "Brasil",
-    "LIVROS": 1
-  },
-  {
-    "ID": 2,
-    "NOME": "Julia ZZagonel",
-    "PAIS": "Brasil",
-    "LIVROS": 2
-  },
-  {
-    "ID": 3,
-    "NOME": "Emma Liord",
-    "PAIS": "Estados Unidos",
-    "LIVROS": 3
-  }...
-]
-``` 
-
 
 Entrada
 
 Digite a URL com o comando DELETE passando o ID do livro que você deseja excluir:
 
 ```bash
-  http://localhost:3000/autores/1
+   http://localhost:3000/livros/653e898784dbbe1955f7c267
 ```
 
 Saída
 
 ```
 
-"Autor deletado com sucesso!"
+ {
+  "Message": "Registo deletado com sucesso",
+  "id": "653e7f932c50a97292c3ece9"
+}
 
 ```
 ## Referências 📌

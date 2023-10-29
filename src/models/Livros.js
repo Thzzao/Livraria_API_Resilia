@@ -1,13 +1,22 @@
-class Livros {
-    constructor(titulo, preco, autor, generos, editora, idioma){
-        this.titulo = titulo
-        this.preco = preco
-        this.autor = autor
-        this.generos = generos
-        this.editora = editora
-        this.idioma = idioma 
-        
-    }
-}
+import mongoose from "mongoose"
+
+const Livros = mongoose.model("Livro",{
+        titulo : String,
+        preco : String,
+        autor : String,
+        generos : String,
+        editora : String,
+        idioma : String,
+        estado: String,
+        descricao: String ,
+        capa : String
+})
 
 export default Livros
+
+
+
+
+
+
+

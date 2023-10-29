@@ -1,11 +1,11 @@
-class Clientes{
-    constructor(nome, email, telefone, endereco ){
-        this.nome = nome
-        this.email = email
-        this.telefone = telefone
-        this.endereco = endereco 
-        
-}
-}
+import mongoose from "mongoose"
+
+const Clientes  = mongoose.model("Cliente", {
+        nome : String, 
+        email : String, 
+        telefone : String, 
+        endereco : String,
+        senha : String
+})
 
 export default Clientes
