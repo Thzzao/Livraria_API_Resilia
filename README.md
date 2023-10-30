@@ -1,10 +1,9 @@
-
 # Espaço das Letras - API 📚
 
-Bem-vindos ao Espaço das Letras, o seu novo destino literário online. Nós somos uma pequena livraria/sebo apaixonada por livros e pela cidade de Curitiba, e estamos aqui para compartilhar histórias e conhecimento de forma acessível e conveniente. 
+Bem-vindos ao Espaço das Letras, o seu novo destino literário online. Nós somos uma pequena livraria/sebo apaixonada por livros e pela cidade de Curitiba, e estamos aqui para compartilhar histórias e conhecimento de forma acessível e conveniente.
 
-* [Repositório FrontEnd do Projeto](https://github.com/Thzzao/LivrariaResilia)
-* [Deploy da API no Render](https://backend-api-p7ni.onrender.com)
+- [Repositório FrontEnd](https://github.com/Thzzao/LivrariaResilia)
+- [Deploy da API no Render](https://backend-api-p7ni.onrender.com)
 
 ## Descrição 🧾
 
@@ -14,28 +13,29 @@ Nesse projeto foi criado uma API Rest para uma livraria, desenvolvido em Node.js
 
 Antes de começar, certifique-se de que as seguintes tecnologias estejam devidamente instaladas em sua máquina:
 
-* [VS Code](https://code.visualstudio.com/download)
-* [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
+- [VScode](https://code.visualstudio.com/download)
 
-* [Node.js](https://nodejs.org/en)
+- [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 
-* [MongoDB](https://www.mongodb.com/pt-br)
+- [Node.js](https://nodejs.org/en)
+
+- [MongoDB](https://www.mongodb.com/pt-br)
 
 ## Banco de Dados 📊
 
 Essas são as entidades do nosso banco de dados:
 
-* Clientes
-* Livros 
+- Clientes
+- Livros
 
-## Dependências ⛓️ 
+## Dependências ⛓️
 
 ```bash
    cors: "^2.8.5"
 ```
 
 ```bash
-   expres": "^4.18.2"
+   expres: "^4.18.2"
 ```
 
 ```bash
@@ -54,48 +54,56 @@ Essas são as entidades do nosso banco de dados:
    mongoose: "^7.5.3"
 ```
 
-
 ## Instalação 🔌
 
 Abra seu terminal e execute os comandos a seguir:
 
-* **Clone o projeto:**
+- **Clone o projeto:**
+
+_`CHAVE SSH`_
 
 ```bash
-  git clone https://github.com/JulieneCarneiro/BackEnd_API.git
+  git clone git@github.com:Thzzao/Livraria_API_Resilia.git
 ```
 
-* **Entrando na pasta:**
+ou _`URL`_
 
 ```bash
-  cd BackEnd_API
+  git clone https://github.com/Thzzao/Livraria_API_Resilia.git
 ```
 
-* **Abra o VS Code:**
+- **Entrando na pasta:**
 
 ```bash
-  code . 
+  cd Livraria_API_Resilia
 ```
-No terminal do VS Code: 
 
-* **Instale as dependências:**
+- **Abra o VS Code:**
+
+```bash
+  code .
+```
+
+No terminal do VS Code:
+
+- **Instale as dependências:**
 
 ```bash
   npm install
 ```
 
-* **Configure o .env para conectar com o seu MongoDB no Atlas**
+- **Configure o .env para conectar com o seu MongoDB no Atlas**
 
-Segue um exemplo de configuração: [Link](https://github.com/motdotla/dotenv)
+Segue um exemplo de configuração: [EXEMPLO](https://github.com/motdotla/dotenv)
 
 ```bash
   USER_DB=local
   DATABSE=local
   PASSWORD=local
-  CLUSTER=local    
+  CLUSTER=local
 ```
 
-* **Inicie o servidor:**
+- **Inicie o servidor:**
 
 ```bash
   npm start
@@ -103,13 +111,12 @@ Segue um exemplo de configuração: [Link](https://github.com/motdotla/dotenv)
 
 ## Exemplos de respostas 🗃️
 
-
-
-***POST - Rota:***
+**_POST - Rota:_**
 
 ```bash
  http://localhost:3000/livros
 ```
+
 A rota post insere um livro.
 
 Entrada
@@ -129,7 +136,8 @@ Copie o código json abaixo e insira no body da requisição http:
   }
 
 
-``` 
+```
+
 Saída
 
 ```
@@ -138,7 +146,8 @@ Saída
 ```
 
 <!-- localhost:3000/livros -->
-***GET - Rota:*** 
+
+**_GET - Rota:_**
 
 ```bash
  http://localhost:3000/livros
@@ -151,6 +160,7 @@ Entrada
 ```
 Apenas digite a rota com o comando GET na URL
 ```
+
 Saída
 
 ```
@@ -196,8 +206,7 @@ Saída
 }
 ```
 
-
-***PATCH - Rota:***
+**_PATCH - Rota:_**
 
 ```bash
  http://localhost:3000/livros/653c49c51c288ad2181a0e7d
@@ -223,33 +232,30 @@ A rota patch modifica algum livro.
   }
 
 ```
+
 Entrada
 
 Copie o código json abaixo e insira no body da requisição http para atualizar o preço:
 
 ```
-{  
+{
   "preco": "R$26,90"
   }
 ```
 
 Saída
+
 ```
 "message": "Livro atualizado com sucesso"
 ```
 
-
-
-
-
-***DELETE - Rota:***
+**_DELETE - Rota:_**
 
 ```bash
   http://localhost:3000/clientes/3
 ```
 
 A rota delete remove um autor.
-
 
 Entrada
 
@@ -269,22 +275,20 @@ Saída
 }
 
 ```
+
 ## Referências 📌
 
- - [Express](https://expressjs.com/pt-br/)
- - [MongoDb](https://www.mongodb.com/docs/)
- - [Node.js](https://nodejs.org/en)
+- [Express](https://expressjs.com/pt-br/)
+- [MongoDb](https://www.mongodb.com/docs/)
+- [Node.js](https://nodejs.org/en)
 - [Thunder Client](https://www.thunderclient.com/)
 
 ## Autores 🖊️
 
 - **Juliene Carneiro** - [GitHub](https://github.com/JulieneCarneiro) - [LinkedIn](https://www.linkedin.com/in/juliene-s-carneiro/)
 
-- **Laís Muller** -  [GitHub](https://github.com/laismullerrr) - [LinkedIn](https://www.linkedin.com/in/laismulleraliski/)
+- **Laís Muller** - [GitHub](https://github.com/laismullerrr) - [LinkedIn](https://www.linkedin.com/in/laismulleraliski/)
 
-- **Thiago Souza** -  [GitHub](https://github.com/Thzzao) - [LinkedIn](https://www.linkedin.com/in/thiagojdss/) 
+- **Thiago Souza** - [GitHub](https://github.com/Thzzao) - [LinkedIn](https://www.linkedin.com/in/thiagojdss/)
 
-- **Leticia Oliveira** -  [GitHub](https://github.com/Letiti4) - [LinkedIn](https://www.linkedin.com/in/leticia-oliveira-1955301b8/) 
- 
-
-
+- **Leticia Oliveira** - [GitHub](https://github.com/Letiti4) - [LinkedIn](https://www.linkedin.com/in/leticia-oliveira-1955301b8/)
